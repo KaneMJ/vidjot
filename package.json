@@ -12,6 +12,8 @@
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
-    "mongoose": "^5.0.16"
+    "method": "^2.0.0",
+    "mongoose": "^5.0.16",
+    "override": "0.0.1"
   }
 }

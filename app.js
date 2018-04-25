@@ -16,6 +16,10 @@ const Idea = mongoose.model('ideas');
 
 const port = 5000;
 
+app.listen(port, ()=> {
+    console.log(`Server started on port ${port}`);
+});
+
 // Handlebars Midleware
 app.engine('handlebars', exphbs({
     defaultLayout: 'main'
@@ -55,8 +59,21 @@ app.get('/ideas/add', (req, res) => {
     res.render('ideas/add');
 });
 
-app.listen(port, ()=> {
-    console.log(`Server started on port ${port}`);
+// Edit Idea Form
+app.get('/ideas/edit/:id', (req, res) => {
+    Idea.findOne({
+        _id: req.params.id
+    })
+    .then(idea => {
+        res.render('ideas/edit', {
+            idea:idea
+        });    
+    });
+});
+
+// Edit Form Process
+app.put('/ideas/:id', (req, res) => {
+    res.send('PUT');
 });
 
 //Process Form
